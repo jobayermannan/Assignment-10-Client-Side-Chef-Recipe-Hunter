@@ -7,17 +7,25 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Navbar from './Pages/Shared/Navbar/Navbar.jsx';
+import Main from './Layout/Main.jsx';
+import AuthProvider from './Providers/AuthProvider.jsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Navbar></Navbar>,
+    element: <Main></Main>,
+    children:[
+    
+    ],
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-     <RouterProvider router={router} />
+    <AuthProvider>
+    <RouterProvider router={router} />
+    </AuthProvider>
+     
   </React.StrictMode>,
 )

@@ -1,0 +1,7 @@
+.navbar-container {
+    position: relative; /* This is necessary for z-index to work */
+    /* Add other styles for the Navbar */
+  }
+  
+  /* Add other styles for .nav-list and .dropdown-menu as needed */
+  

@@ -1,0 +1,18 @@
+/* Styles for larger devices (default styles) */
+.background-container {
+    background-image: url('https://i.ibb.co/DQ4BWNC/vegetables-set-left-black-slate-2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh; /* Adjust this value based on your layout */
+  }
+  
+  /* Styles for mini devices (max-width: 768px) */
+  @media (max-width: 768px) {
+    .background-container {
+        background-size: 150%; /* Adjust this value to make it slightly bigger */
+        height: 70vh; /* Adjust this value to take up more of the viewport height */
+      }
+  }
+  

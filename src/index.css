@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* src/index.css */
+/* Regular background image for small screens */
+.bg-banner-md {
+  background-image: url('/images/banner-bg-medium.jpg');
+}
+
+/* Background image for large screens */
+@media (min-width: 768px) {
+  .bg-banner-lg {
+    background-image: url('/images/banner-bg-large.jpg');
+  }
+}

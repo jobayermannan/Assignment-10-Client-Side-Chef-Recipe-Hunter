@@ -1,12 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import ChefsCard from '../ChefsCard/ChefsCard';
+import "./Navabar.css"
+import { AuthContext } from '../../../Providers/AuthProvider';
 
 
 const Navbar = () => {
+
+  const {user}=useContext(AuthContext)
+  console.log(user)
  
   return (
-<div className="navbar bg-accent text-primary-content">
-  <div className="navbar-start">
-    <div className="dropdown">
+    <div className='navbar-container'>
+        <div className="navbar bg-gradient-to-r from-purple-500 to-emerald-500 mx-auto ">
+  <div className="navbar-start m ">
+    <div className="dropdown " style={{ zIndex: 999 }}>
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
@@ -19,8 +26,8 @@ const Navbar = () => {
         <li><a>Item 3</a></li>
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
-    <label className="swap swap-rotate text-center">
+    <a className="normal-case text-2xl  text-stone-800 font-mono font-bold hover:bg-transparent no-underline hover:no-underline   ">CHEF Mania</a>
+    <label className="swap swap-rotate ml-4 text-center text-slate-900">
   
   {/* this hidden checkbox controls the state */}
   <input type="checkbox" />
@@ -35,20 +42,35 @@ const Navbar = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-    <li><a>Item 1</a></li>
+    <li><a className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '>Home</a></li>
      
        
-         <li><a>Item 1</a></li>
+         <li><a className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '>BLog</a></li>
          
        
      
-      <li><a>Item 3</a></li>
+      <li><a className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '>
+        
+         
+        
+        About</a></li>
     </ul>
   </div>
   <div className="navbar-end">
-    <a className="btn btn-ghos">Button</a>
+  <div className="avatar ">
+    <div className="w-12 rounded-full mx-2 ">
+      <img src="https://i.ibb.co/nk7xSvv/photo-1438761681033-6461ffad8d80.jpg" />
+    </div>
+  </div>
+    { user? 
+      <a className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Logout</a>:
+      <a className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Login</a>
+    }
   </div>
 </div>
+
+    </div>
+
   );
 };
 
