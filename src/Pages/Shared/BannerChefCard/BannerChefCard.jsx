@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const HeroCard = ({ imageUrl, title, description }) => {
+const BannerChefCard = ({ imageUrl, title, description }) => {
   return (
     <div className="hero h-96 w-full bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse h-full">
@@ -16,19 +16,7 @@ const HeroCard = ({ imageUrl, title, description }) => {
     </div>
   );
 };
-export default HeroCard;
+export default BannerChefCard;
 
 
-// <nav className="w-1/4"> {/* Adjust the width as per your requirement */}
-// <div className="navbar bg-base-100">
-//   <div className="navbar-center">
-//     <ul className="menu  px-1 items-center">
-//       <li><a>Item 1</a></li>
-//       <li>
-//         Xshit
-//       </li>
-//       <li><a>Item 3</a></li>
-//     </ul>
-//   </div>
-// </div>
-// </nav>
+

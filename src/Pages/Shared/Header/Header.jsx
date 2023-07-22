@@ -1,75 +1,82 @@
-import HeroCard from "../ChefsCard/ChefsCard";
+import React, { useContext, useState } from 'react';
+import ChefsCard from '../BannerChefCard/BannerChefCard';
+import "./Header.css"
+import { AuthContext } from '../../../Providers/AuthProvider';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
-  // Sample data for each hero card
-  
-  const italianCuisineData = [
-    {
-      chefPicture: "https://i.ibb.co/WVDTDyf/chef16.jpg",
-      chefName: "Mario Rossi",
-      yearsOfExperience: 15,
-      numberOfRecipes: 100,
-      likes: 5000,
-      description: "Chef Mario Rossi is a renowned Italian chef with 15 years of experience in preparing exquisite Italian dishes. He has created a diverse collection of 100 delicious Italian recipes that have garnered 5000 likes from food enthusiasts around the world."
-    },
-    {
-      chefPicture: "https://i.ibb.co/4YQNrWV/portrait-pensive-old-man-chef-dressed-uniform-posing-against-dark-background.jpg",
-      chefName: "Isabella Bianchi",
-      yearsOfExperience: 12,
-      numberOfRecipes: 80,
-      likes: 4500,
-      description: "Meet Chef Isabella Bianchi, an Italian culinary artist with 12 years of experience in crafting authentic Italian delicacies. Her collection of 80 mouthwatering recipes has won the hearts of many, earning her 4500 likes from delighted food lovers."
-    },
-    {
-      chefPicture: "https://i.ibb.co/3zk4dp7/portrait-smiling-chef-uniform-1.jpg",
-      chefName: "Luigi Verdi",
-      yearsOfExperience: 20,
-      numberOfRecipes: 150,
-      likes: 6000,
-      description: "Chef Luigi Verdi, a veteran in the culinary world, brings 20 years of experience in creating delectable Italian masterpieces. His impressive repertoire includes 150 delightful recipes that have earned him 6000 likes and counting."
-    },
-    {
-      chefPicture: "https://i.ibb.co/BLr9FKK/portrait-smiling-chef-uniform.jpg",
-      chefName: "Giovanna Russo",
-      yearsOfExperience: 8,
-      numberOfRecipes: 60,
-      likes: 3000,
-      description: "Introducing Chef Giovanna Russo, a rising star in Italian gastronomy. With 8 years of experience, she has crafted a collection of 60 captivating Italian recipes that have gained her a devoted following of 3000 likes."
-    },
-    {
-      chefPicture: "https://i.ibb.co/f09vnVn/chef4.jpg",
-      chefName: "Alessandro Conti",
-      yearsOfExperience: 18,
-      numberOfRecipes: 120,
-      likes: 5500,
-      description: "Chef Alessandro Conti, a culinary virtuoso, boasts 18 years of experience in creating culinary magic. His treasury of 120 delightful Italian recipes has garnered him a legion of fans, with 5500 likes and growing."
-    },
-    {
-      chefPicture: "https://i.ibb.co/sqxkJCv/chef3.jpg",
-      chefName: "Elena Ferrari",
-      yearsOfExperience: 10,
-      numberOfRecipes: 70,
-      likes: 4000,
-      description: "Meet Chef Elena Ferrari, a passionate Italian chef with 10 years of experience. Her repertoire of 70 mouthwatering Italian recipes has earned her appreciation from food enthusiasts worldwide, with 4000 likes and counting."
-    }
-  ];
-  
-  
 
+  const {user}=useContext(AuthContext);
+   
+
+ 
+ 
   return (
-    <div className="carousel w-full">
-      {italianCuisineData.map((card, index) => (
-        <div key={`slide${index + 1}`} id={`slide${index + 1}`} className="carousel-item relative w-full">
-          <HeroCard imageUrl={card.chefPicture} title={card.chefName} description={card.description} />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href={`#slide${index === 0 ? italianCuisineData.length : index}`} className="btn btn-circle">❮</a>
-            <a href={`#slide${index === italianCuisineData.length - 1 ? 1 : index + 2}`} className="btn btn-circle">❯</a>
-          </div>
-        </div>
-      ))}
+    <div className='navbar-container'>
+        <div className="navbar bg-gradient-to-r from-purple-500 to-emerald-500 mx-auto ">
+  <div className="navbar-start m ">
+    <div className="dropdown " style={{ zIndex: 999 }}>
+      <label tabIndex={0} className="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+      </label>
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52">
+        <li><a>Home</a></li>
+        <li>
+          <Link to="/blog">Blog</Link>
+        
+        </li>
+        <li><Link to="/about">About</Link></li>
+      </ul>
     </div>
+    <Link className="normal-case text-2xl  text-stone-800 font-mono font-bold hover:bg-transparent no-underline hover:no-underline   ">CHEF Mania</Link>
+    <label className="swap swap-rotate ml-4 text-center text-slate-900">
+  
+  {/* this hidden checkbox controls the state */}
+  <input type="checkbox" />
+  
+  {/* sun icon */}
+  <svg className="swap-on fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"/></svg>
+  
+  {/* moon icon */}
+  <svg className="swap-off fill-current w-8 h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"/></svg>
+  
+</label>
+  </div>
+  <div className="navbar-center hidden lg:flex">
+    <ul className="menu menu-horizontal px-1">
+    <li><Link to="/recipe/0" className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '  >Home</Link></li>
+     
+       
+         <li><Link className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  ' to="/blog">BLog</Link></li>
+         <li><Link className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  ' to="/about">About</Link></li>
+         
+       
+     
+      <li><Link className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '>
+         {user && user.displayName}
+         
+        </Link></li>
+    </ul>
+  </div>
+  <div className="navbar-end">
+  <div className="avatar ">
+    <div className="w-12 rounded-full mx-2 ">
+      {user &&  <img src="https://i.ibb.co/nk7xSvv/photo-1438761681033-6461ffad8d80.jpg" /> }
+     
+       
+    </div>
+  </div>
+    { user? 
+      <Link className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Logout</Link>:
+      <Link to="/login" className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Login</Link>
+    }
+  </div>
+</div>
+
+    </div>
+
   );
 };
 
 export default Header;
-
