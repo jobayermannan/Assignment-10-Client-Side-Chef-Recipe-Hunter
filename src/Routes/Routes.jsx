@@ -10,6 +10,7 @@ import LoginLayout from "./../Layout/Loginlayout";
 import RegisterForm from './../Pages/RegisterForm/RegisterForm';
 import Blog from "../Pages/Shared/Blog/Blog";
 import About from "../Pages/Shared/About/About";
+import PrivateRoutes from "./PrivateRoutes";
 
 
 const router = createBrowserRouter([
@@ -53,19 +54,19 @@ const router = createBrowserRouter([
       
       {
         path: ":id", // Set this without the leading slash
-        element: <Category />,
+        element:<Category />,
         loader: ({ params }) => fetch(`http://localhost:5000/lists/${params.id}`)
       },
     ]
   },
   {
     path: "chef", // Set this without the leading slash
-    element: <ChefLayout />,
+    element: <ChefLayout /> ,
     children: [
  
       {
         path: ":id", // Set this without the leading slash to nest ChefCard under /chef/:id
-        element: <Recipe />,
+        element: <PrivateRoutes><Recipe />,</PrivateRoutes>
    
       }
     ]

@@ -1,11 +1,31 @@
-import React from 'react';
-import { Form, Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Form, Link, useLocation, useNavigate } from 'react-router-dom';
 import {  FaGithub, FaGoogle } from "react-icons/fa";
+import { AuthContext } from '../../Providers/AuthProvider';
 
 const Login = () => {
+  const {signUser}=useContext(AuthContext)
+  const navigate = useNavigate();
+  const location=useLocation()
+  console.log("shit bro",location)
+  const from= location.state?.from?.pathname || "/recipe/0"
+
+  const handleSignIn=(event)=>{
+      event.preventDefault();
+      const form= event.target;
+      const email= form.email.value;
+      const password= form.password.value;
+      console.log(email, password)
+      signUser(email, password).then((result)=>{console.log(result) 
+         form.reset(); 
+         navigate(from , {replace:true})
+        }).catch((error)=>{
+          console.log(error)
+        })
+  }
     return (
         <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
-        <Form onSubmit="" className="w-2/5 bg-white rounded-lg shadow-lg p-10">
+        <Form onSubmit={handleSignIn} className="w-2/5 bg-white rounded-lg shadow-lg p-10">
           <h1 className="text-4xl font-bold text-center mb-6">Login</h1>
           <div className="mb-4">
             <label htmlFor="email" className="text-gray-600 ml-6">Email</label>

@@ -2,12 +2,16 @@ import React, { useContext, useState } from 'react';
 import ChefsCard from '../BannerChefCard/BannerChefCard';
 import "./Header.css"
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const Header = () => {
+  
 
-  const {user}=useContext(AuthContext);
+  const {user,logOut}=useContext(AuthContext);
+  const  handleSingOut = ()=>{
+    logOut().then(() => {}).catch((err) => console.log(err));
+  };
    
 
  
@@ -68,7 +72,7 @@ const Header = () => {
     </div>
   </div>
     { user? 
-      <Link className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Logout</Link>:
+      <Link to="/recipe/0" onClick={handleSingOut} className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Logout</Link>:
       <Link to="/login" className="btn outline-none text-white bg-gradient-to-r from-slate-950 to-emerald-800 hover:from-purple-600 hover:to-emerald-600">Login</Link>
     }
   </div>

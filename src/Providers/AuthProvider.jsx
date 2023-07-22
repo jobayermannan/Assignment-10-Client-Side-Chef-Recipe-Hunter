@@ -1,23 +1,53 @@
-import React, { createContext, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-import app from './../Firebase/FirebaseConfig';
-
+import React, { createContext, useEffect, useState } from 'react';
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import app from '../Firebase/FirebaseConfig';
+ 
+ 
+const auth =getAuth(app)
 
  export const AuthContext =createContext(null)
-  const auth =getAuth(app)
+
+
 
 
 const AuthProvider = ({children}) => {
-  const user =null;
+  const [user,setUser] =useState(null);
+  const [loader,setLoader] = useState(true);
 
 
-  const  createUser= (email,password)=>{
-   
-     return createUserWithEmailAndPassword(auth,email,password);
-}
+    const  createUser =(email,password)=>{
+      setLoader(true)
+      return createUserWithEmailAndPassword(auth,email,password)
+    }
+
+    const  signUser= (email,password)=>{
+       setLoader(true)
+       return signInWithEmailAndPassword(auth,email,password);
+  } 
+
+  useEffect(()=>{
+       const unSubscriber=      onAuthStateChanged(auth, (loggedUser)=>{
+              console.log("ami asi " ,loggedUser);
+              setUser(loggedUser)
+              setLoader(false)
+             }
+
+       )
+
+       return (()=>{
+        unSubscriber
+       })
+  },[])
+
+
+
+   const logOut=()=>{
+    setLoader(true)
+    return signOut(auth);
+   }
 
   const authInfo={
-    user,createUser
+    user, createUser,signUser,logOut,loader
   }
 
 
