@@ -7,7 +7,7 @@ const Recipe = () => {
     const [item, setItem] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/chefs/${id}`)
+        fetch(`https://chef-recipe-server-jobayermannan.vercel.app/chefs/${id}`)
           .then((res) => res.json())
           .then((data) => setItem(data))
           .catch((err) => console.log(err));

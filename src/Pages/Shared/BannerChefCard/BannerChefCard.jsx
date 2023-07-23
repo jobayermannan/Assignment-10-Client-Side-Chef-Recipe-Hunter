@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const BannerChefCard = ({ imageUrl, title, description }) => {
+const BannerChefCard = ({ imageUrl, title, description,onLoad }) => {
   return (
     <div className="hero h-96 w-full bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse h-full">

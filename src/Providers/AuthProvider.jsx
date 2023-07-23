@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import app from '../Firebase/FirebaseConfig';
  
  
@@ -13,7 +13,8 @@ const auth =getAuth(app)
 const AuthProvider = ({children}) => {
   const [user,setUser] =useState(null);
   const [loader,setLoader] = useState(true);
-
+  const provider= new GoogleAuthProvider();
+  const gitProvider= new GithubAuthProvider();
 
     const  createUser =(email,password)=>{
       setLoader(true)
@@ -25,6 +26,32 @@ const AuthProvider = ({children}) => {
        return signInWithEmailAndPassword(auth,email,password);
   } 
 
+  
+        
+const updateCurrentUser = (user,name) => {
+  updateProfile(user, {
+     displayName: name, photoURL: photo })
+   .then(() => {
+    console.log ('user name updated successfully')
+   }).catch((error) => {
+      const errorMessage =error.message
+      console.log(errorMessage)
+   })
+ }
+ 
+
+
+
+
+
+  const SignInWithGoogle= ()=>{
+    setLoader(true)
+    return signInWithPopup(auth,provider);
+  }
+  const SignInWithGItHUb= ()=>{
+    setLoader(true)
+    return signInWithPopup(auth,gitProvider);
+  }
   useEffect(()=>{
        const unSubscriber=      onAuthStateChanged(auth, (loggedUser)=>{
               console.log("ami asi " ,loggedUser);
@@ -47,7 +74,7 @@ const AuthProvider = ({children}) => {
    }
 
   const authInfo={
-    user, createUser,signUser,logOut,loader
+    user, createUser,signUser,logOut,loader,SignInWithGoogle,SignInWithGItHUb,updateCurrentUser
   }
 
 

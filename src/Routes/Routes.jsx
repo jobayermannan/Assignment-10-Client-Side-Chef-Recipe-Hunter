@@ -11,9 +11,14 @@ import RegisterForm from './../Pages/RegisterForm/RegisterForm';
 import Blog from "../Pages/Shared/Blog/Blog";
 import About from "../Pages/Shared/About/About";
 import PrivateRoutes from "./PrivateRoutes";
+import ErrorPage from "../Pages/ErrorPage/Error";
 
 
 const router = createBrowserRouter([
+  {
+    path:"*",
+    element: <ErrorPage></ErrorPage>
+  },
 
 
   { 
@@ -55,7 +60,7 @@ const router = createBrowserRouter([
       {
         path: ":id", // Set this without the leading slash
         element:<Category />,
-        loader: ({ params }) => fetch(`http://localhost:5000/lists/${params.id}`)
+        loader: ({ params }) => fetch(`https://chef-recipe-server-jobayermannan.vercel.app/lists/${params.id}`)
       },
     ]
   },

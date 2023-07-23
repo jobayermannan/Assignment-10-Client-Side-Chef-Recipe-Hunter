@@ -13,7 +13,7 @@ const RecipesListNav = () => {
   const [lists, setCategories] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:5000/lists')
+    fetch('https://chef-recipe-server-jobayermannan.vercel.app/lists')
       .then((res) => res.json())
       .then((data) => setCategories(data))
       .catch((err) => console.log(err));
