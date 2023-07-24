@@ -7,12 +7,9 @@ import LazyLoad from 'react-lazyload';
 
 
 const ChefCard = ({card}) => {
-    if (!card) {
-        return <div>Card data not available</div>; // or any other fallback UI
-      }
     
       const { _id, chefName, description,likes,yearsOfExperience,numberOfRecipes, chefPicture } = card;
-      console.log(_id);
+     
 
   
       const formattedValue = Numeral(likes).format('0a');
