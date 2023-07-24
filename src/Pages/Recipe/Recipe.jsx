@@ -64,7 +64,7 @@ const Recipe = () => {
       <p>{recipe1?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe1?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} >favorite</div>
       </div>
     </div>
   </div>
@@ -79,7 +79,7 @@ const Recipe = () => {
       <p>{recipe2?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe2?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>Favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick}>Favorite</div>
       </div>
     </div>
   </div>
@@ -94,7 +94,7 @@ const Recipe = () => {
       <p>{recipe3?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe3?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>Favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} >Favorite</div>
       </div>
     </div>
   </div>
