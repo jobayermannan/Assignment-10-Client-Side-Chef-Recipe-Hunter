@@ -12,4 +12,6 @@ Features
 
 
 
-Check out the live site here.
+
+Check out the live site [here](https://chef-recipe-client-project.web.app/recipe/0)
+

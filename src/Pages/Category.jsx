@@ -16,7 +16,7 @@ const Category = () => {
 
   return (
     <div className=''>
-      <div className=" px-12 mx-12   flex justify-center rounded-2xl bg-gradient-to-l from-purple-500 to-emerald-500 text-primary-content">
+      <div className=" px-12  ml-12 mr-6 lg:mr-10   flex justify-center rounded-2xl bg-gradient-to-l from-purple-500 to-emerald-500 text-primary-content">
   <a className="btn btn-ghost normal-case text-xl"> Number of Recipes: {Lists.length}</a>
 </div>
 

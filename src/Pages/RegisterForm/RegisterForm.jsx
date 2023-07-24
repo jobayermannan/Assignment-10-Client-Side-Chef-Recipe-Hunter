@@ -3,7 +3,7 @@ import { Form, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProvider';
 
 const RegisterForm = () => {
-const {createUser,updateCurrentUser}=useContext(AuthContext);
+const {createUser,updateCurrentUser,user}=useContext(AuthContext);
 
 
 const [success,setOk] =useState('');
@@ -51,7 +51,14 @@ const handleCreateUser = event => {
       const loggedUser =result.user;
       console.log(loggedUser);
       
-      updateCurrentUser(loggedUser)
+      updateCurrentUser(user, {
+        displayName: name, photoURL: photo })
+      .then(() => {
+       console.log ('user name updated successfully')
+      }).catch((error) => {
+         const errorMessage =error.message
+         console.log(errorMessage)
+      })
       form.reset();
      setOk("Your Account has been created successfully")
       navigate("/recipe/0")

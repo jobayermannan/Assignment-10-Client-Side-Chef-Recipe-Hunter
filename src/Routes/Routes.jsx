@@ -71,7 +71,7 @@ const router = createBrowserRouter([
  
       {
         path: ":id", // Set this without the leading slash to nest ChefCard under /chef/:id
-        element: <PrivateRoutes><Recipe />,</PrivateRoutes>
+        element: <PrivateRoutes><Recipe /></PrivateRoutes>
    
       }
     ]

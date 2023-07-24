@@ -29,14 +29,8 @@ const AuthProvider = ({children}) => {
   
         
 const updateCurrentUser = (user,name) => {
-  updateProfile(user, {
-     displayName: name, photoURL: photo })
-   .then(() => {
-    console.log ('user name updated successfully')
-   }).catch((error) => {
-      const errorMessage =error.message
-      console.log(errorMessage)
-   })
+  setLoader(true)
+  return updateProfile(user,name);
  }
  
 

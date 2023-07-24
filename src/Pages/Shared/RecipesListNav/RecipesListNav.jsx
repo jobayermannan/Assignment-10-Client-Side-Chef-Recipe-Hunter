@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Header from '../Banner/Banner';
+
 import { Link } from 'react-router-dom';
-import Category from '../../Category';
+
 
 const RecipesListNav = () => {
   const [showPopup, setShowPopup] = useState(false);
@@ -44,16 +44,16 @@ const RecipesListNav = () => {
 
         {/* Popup Content */}
         {showPopup && (
-          <div className="fixed top-0 left-0 h-full z-200 w-full bg-black bg-opacity-50 flex justify-center items-center">
-            <div className="bg-gradient-to-r from-purple-500 via-sky-300 to-emerald-500 p-8 rounded-lg w-96">
+          <div className=" top-0 left-0 relative  h-full w-full bg-black bg-opacity-50 flex justify-center items-center">
+            <div className="bg-gradient-to-r    from-purple-500 via-sky-300 to-emerald-500 p-8 rounded-lg w-96">
               {/* Your popup content goes here */}
-              <h1 className="text-2xl font-bold text-white hover:-z-500">Recipes List</h1>
-              <ul className="space-y-2">
+              <h1 className="text-2xl font-bold text-white  ">Recipes List</h1>
+              <ul className="space-y-2  " >
                 {lists.map((recipe) => (
-                       <li key={recipe.id} className="">
+                       <li key={recipe.id} >
                   <Link
                     to={`/recipe/${recipe.id}`}
-                    className="block py-1 px-4 rounded-lg text-slate-100 bg-gradient-to-b from-gray-400 via-black to-slate-600 hover:bg-gradient-to-r hover:from-purple-950 hover:via-pink-300 hover:to-emerald-950 hover:text-white"
+                    className="block py-1 px-4  rounded-lg text-slate-100 bg-gradient-to-b from-gray-400 via-black to-slate-600 hover:bg-gradient-to-r hover:from-purple-950 hover:via-pink-300 hover:to-emerald-950 hover:text-white"
                   >
                     {recipe.name}
                   </Link>

@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react';
-import ChefsCard from '../BannerChefCard/BannerChefCard';
+
 import "./Header.css"
 import { AuthContext } from '../../../Providers/AuthProvider';
-import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { Link, NavLink, } from 'react-router-dom';
 
 
 const Header = () => {
@@ -25,15 +25,15 @@ const Header = () => {
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
       <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3  p-2 shadow bg-base-100 rounded-box w-52">
-        <li><NavLink  activeClassName="active" to="/recipe/0" >Home</NavLink></li>
+        <li><NavLink  activeClassName="my-active-class" to="/recipe/0" >Home</NavLink></li>
         <li>
-          <NavLink activeClassName="active" to="/blog">Blog</NavLink>
+          <NavLink activeClassName="my-active-class" to="/blog">Blog</NavLink>
         
         </li>
-        <li><NavLink to="/about"  activeClassName="active">About</NavLink></li>
+        <li><NavLink to="/about"  activeClassName="my-active-class">About</NavLink></li>
       </ul>
     </div>
-    <Link className="normal-case text-2xl  text-stone-800 font-mono font-bold hover:bg-transparent no-underline hover:no-underline   ">CHEF Mania</Link>
+    <Link className="normal-case text-2xl  text-stone-800 font-mono font-bold hover:bg-transparent no-underline hover:no-underline   " to="/recipe/0">CHEF Mania</Link>
     <label className="swap swap-rotate ml-4 text-center text-slate-900">
   
   {/* this hidden checkbox controls the state */}
@@ -49,11 +49,11 @@ const Header = () => {
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal px-1">
-    <li><NavLink to="/recipe/0" className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '  activeClassName="active"  >Home</NavLink></li>
+    <li><NavLink to="/recipe/0" className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '  activeClassName="my-active-class"  >Home</NavLink></li>
      
        
-         <li><NavLink className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '   ClassName="active" to="/blog">BLog</NavLink></li>
-         <li><NavLink className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '   ClassName="active" to="/about">About</NavLink></li>
+         <li><NavLink className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '   activeClassName="my-active-class" to="/blog">BLog</NavLink></li>
+         <li><NavLink className='normal-case text-lg  text-stone-800 font-mono subpixel-antialiased font-bold hover:bg-transparent no-underline hover:no-underline  '   activeClassName="my-active-class" to="/about">About</NavLink></li>
          
        
      

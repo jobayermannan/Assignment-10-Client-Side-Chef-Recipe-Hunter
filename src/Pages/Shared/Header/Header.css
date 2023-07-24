@@ -2,9 +2,6 @@
     position: relative; /* This is necessary for z-index to work */
     /* Add other styles for the Navbar */
   }
-  .active {
-    color: #9b1313; /* Change to your desired active link color */
-    font-weight: bold; /* Add any other styles you want for the active link */
-  }
+  
   /* Add other styles for .nav-list and .dropdown-menu as needed */
   

@@ -20,6 +20,8 @@ const Main = () => {
            <RecipesListNav></RecipesListNav>
            <Outlet></Outlet>
           
+           
+          
            <Footer></Footer>
        
          
