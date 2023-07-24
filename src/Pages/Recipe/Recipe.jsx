@@ -15,11 +15,21 @@ const Recipe = () => {
           .then((data) => setItem(data))
           .catch((err) => console.log(err));
       }, []);
- 
+      
  
       const { _id: chefId,likes,numberOfRecipes,recipe2,recipe3, chefName,recipe1,yearsOfExperience, description, chefPicture,listId,rating, } = item || {};
    
       const formattedValue = Numeral(likes).format('0a');
+
+      const [isDisabled, setDisabled] = useState(false);
+
+      const handleClick = () => {
+        
+        alert('Successfully added to favorites');
+    
+        
+        setDisabled(true);
+      };
 
 
     return (
@@ -54,7 +64,7 @@ const Recipe = () => {
       <p>{recipe1?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe1?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black">favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>favorite</div>
       </div>
     </div>
   </div>
@@ -69,7 +79,7 @@ const Recipe = () => {
       <p>{recipe2?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe2?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black">Favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>Favorite</div>
       </div>
     </div>
   </div>
@@ -84,7 +94,7 @@ const Recipe = () => {
       <p>{recipe3?.cookingMethod}</p>
       <div className="card-actions justify-between">
         <div className="badge badge-outline"><FaStar></FaStar>{recipe3?.rating}</div>
-        <div className="btn btn-outline bg-secondary btn-sm text-black">Favorite</div>
+        <div className="btn btn-outline bg-secondary btn-sm text-black" onClick={handleClick} disabled={isDisabled}>Favorite</div>
       </div>
     </div>
   </div>
