@@ -17,7 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate();
   const location=useLocation()
-  console.log("shit bro",location)
+
   const from= location.state?.from?.pathname || "/recipe/0"
 
   const handleSignIn=(event)=>{
@@ -31,8 +31,8 @@ const Login = () => {
       }
       setError('')
       setSuccess('')
-      console.log(email, password)
-      signUser(email, password).then((result)=>{console.log(result) 
+      
+      signUser(email, password).then((result)=>{(result) 
          form.reset(); 
          setSuccess("successfully logged in");
          navigate(from , {replace:true})
@@ -43,10 +43,10 @@ const Login = () => {
   }
 
   const handleGoogleSignIn=(event)=>{
-    SignInWithGoogle().then((result)=>{console.log(result);navigate(from , {replace:true})}).catch((error)=>{console.log(error)})
+    SignInWithGoogle().then((result)=>{(result);navigate(from , {replace:true})}).catch((error)=>{(error)})
   }
   const handleGitSignIn=(event)=>{
-    SignInWithGItHUb().then((result)=>{console.log(result);navigate(from , {replace:true})}).catch((error)=>{console.log(error)})
+    SignInWithGItHUb().then((result)=>{(result);navigate(from , {replace:true})}).catch((error)=>{(error)})
   }
     return (
         <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">

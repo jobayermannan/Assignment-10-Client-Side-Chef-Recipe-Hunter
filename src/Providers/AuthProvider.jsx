@@ -48,7 +48,7 @@ const updateCurrentUser = (user,name) => {
   }
   useEffect(()=>{
        const unSubscriber=      onAuthStateChanged(auth, (loggedUser)=>{
-              console.log("ami asi " ,loggedUser);
+              
               setUser(loggedUser)
               setLoader(false)
              }

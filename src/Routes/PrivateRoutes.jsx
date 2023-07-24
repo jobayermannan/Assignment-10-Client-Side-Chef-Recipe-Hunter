@@ -4,9 +4,9 @@ import { Navigate, useLocation } from 'react-router-dom';
 
 const PrivateRoutes = ({children}) => {
     const {user,loader}= useContext(AuthContext);
-    console.log("user in private routes", user);
+    
     const location=useLocation()
-    console.log(location)
+  
 
     if (loader){
         return <><span className="loading loading-bars loading-xs"></span>

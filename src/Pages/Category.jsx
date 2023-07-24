@@ -7,7 +7,7 @@ const Category = () => {
 
   const { id } = useParams();
   const Lists = useLoaderData();
-  console.log(Lists);
+ 
 
   // Check if Lists is empty or undefined
   if (!Lists || Lists.length === 0) {
