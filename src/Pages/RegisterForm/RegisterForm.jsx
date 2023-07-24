@@ -61,7 +61,7 @@ const handleCreateUser = event => {
       })
       form.reset();
      setOk("Your Account has been created successfully")
-      navigate("/recipe/0")
+      navigate("/login")
     }).catch (error => {
       const errorMessage = error.message;
      console.log(errorMessage);
@@ -69,16 +69,7 @@ const handleCreateUser = event => {
     })
     
 }
-// const updateCurrentUser = (user) => {
-//   updateProfile(user, {
-//      displayName:inputName,photoURL:photo })
-//    .then(() => {
-//     console.log ('user name updated successfully')
-//    }).catch((error) => {
-//       const errorMessage =error.message
-//       console.log(errorMessage)
-//    })
-//  }
+//
 return (
   <div className="flex justify-center items-center min-h-screen bg-gradient-to-r from-purple-400 to-pink-500">
     <Form onSubmit={handleCreateUser} className="w-2/5 bg-white rounded-lg shadow-lg p-10">

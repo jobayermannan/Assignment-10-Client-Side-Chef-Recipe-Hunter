@@ -87,6 +87,16 @@ const Recipe = () => {
             </div>
           </div>
         ))}
+       
+
+      </div>
+
+      <div className="flex justify-center">
+        <Link to={`/recipe/${item?.listId}`}>
+          <button className="btn btn-primary">
+            <FaArrowLeft /> Recipes List
+          </button>
+        </Link>
       </div>
     </div>
   );
